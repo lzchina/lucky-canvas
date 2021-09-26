@@ -150,7 +150,7 @@ export default class LuckyWheel extends Lucky {
     this.Radius = Math.min(this.boxWidth, this.boxHeight) / 2
     // 初始化前回调函数
     config.beforeInit?.call(this)
-    ctx.translate(this.Radius, this.Radius)
+    // ctx.translate(this.Radius, this.Radius)
     this.draw() // 先画一次, 防止闪烁
     this.draw() // 再画一次, 拿到正确的按钮轮廓
     // 异步加载图片
@@ -264,6 +264,9 @@ export default class LuckyWheel extends Lucky {
     const { config, ctx, _defaultConfig, _defaultStyle } = this
     // 触发绘制前回调
     config.beforeDraw?.call(this, ctx)
+
+    ctx.translate(this.Radius, this.Radius)
+
     // 清空画布
     ctx.clearRect(-this.Radius, -this.Radius, this.Radius * 2, this.Radius * 2)
     // 绘制blocks边框
@@ -417,6 +420,7 @@ export default class LuckyWheel extends Lucky {
         })
       })
     })
+    ctx.translate(-this.Radius, -this.Radius)
     // 触发绘制后回调
     config.afterDraw?.call(this, ctx)
   }
