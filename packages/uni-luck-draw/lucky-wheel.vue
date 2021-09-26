@@ -169,11 +169,11 @@
               const Radius = Math.min(this.config.width, this.config.height) / 2
               // 设置坐标轴
               _this.Radius = Radius
-              ctx.translate(Radius, Radius)
+              // ctx.translate(Radius, Radius)
             },
             beforeInit: function () {
               // 重置坐标轴
-              ctx.translate(-this.Radius, -this.Radius)
+              // ctx.translate(-this.Radius, -this.Radius)
             },
             afterInit: function () {
               // 动态设置按钮
